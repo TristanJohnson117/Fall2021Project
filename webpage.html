@@ -1,1 +1,199 @@
-<h1> Hello world </h1>
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <title>MIS3502 Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap 4 References -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <!-- Link to FontAwesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Your custom CSS -->
+    <link rel="stylesheet" href="css/app.css">
+    <!-- Your custom JavaScript -->
+    <script src="js/app.js"></script>
+
+    <!-- Link to image for the favicon -->
+    <link rel="icon" href="images/TU100x100.png">
+</head>
+
+<body>
+
+<!-- Top Navigation Bar -->
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+    <!-- Logo -->
+      <a class ="navbar-brand" href="index.html">
+          <img alt="MIS3502 - Huntzilla" src="images/TU100x100.png" style="width:40px;">
+          &nbsp;&nbsp;Huntzilla
+      </a>
+
+    <!-- Toggler Icon for responsiveness -->
+    <button id="toggle-icon" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <!--Menu sets on the left -->
+        <ul class="navbar-nav mr-auto">
+        </ul>
+    <!--Menu sets on the right -->
+    <!--Each individual item can be secured by adding the class: secured -->
+        <ul class="navbar-nav ml-auto">
+                <li class="nav-item secured">
+                    <a class="nav-link" href="#div-gamecode"><i class="fa fa-link"></i> Start Over </a>
+                </li>
+                <li class="nav-item secured">
+                    <a class="nav-link" href="#div-login"><i class="fa fa-sign-out"></i>Logout</a>
+                </li>
+        </ul>
+    </div>
+</nav>
+
+<br><br><br><br>
+
+<!--Start container for BS4 (Bootstrap 4) formatting-->
+<div class="container-fluid">
+
+    <div class="row text-center">
+        <div class="col-md-12">
+			&nbsp; <!-- place holder for additional top row content -->
+        </div>
+    </div>
+
+    <div class="row">
+    <div class="col-md-2"></div>
+
+		<div class="col-md-8 content-wrapper " id="div-login" style="display: none;">
+                <form id='form-login'>
+				<label for="username">User name:</label>
+				<input type="text" name="username" id="username" class="form-control" >
+				<label for="password">Password:</label>
+                <input type="password" name="password" id="password" class="form-control" >
+                <br>
+				<div class="text-center">
+				<input type="button" value="Login" name="btnLogin" id="btnLogin" class="btn btn-primary" style="font-size:2em;width:100%;" >
+                </div>
+                <br>
+                <div id='login_message' class="alert alert-danger text-center" style="display:none;">
+                </div>
+			</form>
+		</div>
+
+		<div class="col-md-8 content-wrapper " id="div-splash" style="display: none;">
+			<div>
+                <h1>Huntzilla</h1>
+                <p> login for some fun</p>
+                <!--we created this button, so when the user clicks the signin, the btnSignIn tag is initiated.-->
+                <input type="button" value="Sign in" name="btnSignIn" id="btnSignIn" class="btn btn-primary" style="font-size:2em;width:100%;" >
+            </div>
+		</div>
+		
+		<div class="col-md-8 content-wrapper " id="div-gamecode" style="display: none;">
+			<div>
+                <h1>Enter Game code.</h1>
+                <label for = "gamecode"> Game code: </label>
+				<input type="text" name="gamecode" id="gamecode" class="form-control" >
+                <br><br>
+               <div class = "text-center">
+                <input type="button" value="Play" name="btnPlay" id="btnPlay" class="btn btn-primary" style="font-size:2em;width:100%;"> 
+                </div>
+            </div>
+		</div>
+	
+		
+        <div class="col-md-8 content-wrapper " id="div-riddle1" style="display: none;">
+			<div>
+                <h1>Riddle: Riddle 1 text goes here.</h1>
+                <br>
+                <label for="code1"> Secret code: </label>
+                <input type="text" name="code1" id="code1" class="form-control"  >
+                <div class = "text-center">
+                    <input type="button" value = "Check" name="btnCheck1" id="btnCheck1" class="btn btn-primary" style="font-size:2em;width:100%;">
+                </div>
+            </div>
+		</div>
+        
+        <div class="col-md-8 content-wrapper " id="div-riddle2" style="display: none;">
+			<div>
+                <h1>Riddle: Riddle 2 text goes here.</h1>
+                Riddle 2 goes here.
+                <label for="code2"> Secret code: </label>
+                <input type="text" name="code2" id="code2" class="form-control"  >
+                <div class = text-center>
+                    <input type="button" value = "Check" name="btnCheck2" id="btnCheck2" class="btn btn-primary" style="font-size:2em;width:100%;">
+                </div>
+            </div>
+		</div>
+        
+        <div class="col-md-8 content-wrapper " id="div-riddle3" style="display: none;">
+			<div>
+                Riddle 3 goes here.
+                <label for="code3"> Secret code: </label>
+                <input type="text" name="code3" id="code3" class="form-control"  >
+                <div class = text-center>
+                    <input type="button" value = "Check" name="btnCheck3" id="btnCheck3" class="btn btn-primary" style="font-size:2em;width:100%;">
+                    </div>
+            </div>
+		</div>
+        
+        <div class="col-md-8 content-wrapper " id="div-riddle4" style="display: none;">
+			<div>
+                Riddle 4 goes here.
+                <label for="code4"> Secret code: </label>
+                <input type="text" name="code4" id="code4" class="form-control"  >
+                <div class = text-center>
+                    <input type="button" value = "Check" name="btnCheck4" id="btnCheck4" class="btn btn-primary" style="font-size:2em;width:100%;">
+                </div>
+            </div>
+		</div>
+        
+        <div class="col-md-8 content-wrapper " id="div-riddle5" style="display: none;">
+			<div>
+                Riddle 5 goes here.
+                <label for="code5"> Secret code: </label>
+                <input type="text" name="code5" id="code5" class="form-control"  >
+                <div class = text-center>
+                    <input type="button" value = "Check" name="btnCheck5" id="btnCheck5" class="btn btn-primary" style="font-size:2em;width:100%;">
+                </div>
+            </div>
+		</div>
+        
+        <div class="col-md-8 content-wrapper " id="div-final" style="display: none;">
+			<div>
+                Final message goes here.
+                
+            </div>
+		</div>
+
+    <div class="col-md-2"></div>
+    </div>
+
+<div class="row">
+    <div class="col-md-12 text-center">
+        <div>
+            &nbsp;
+        </div>
+    </div>
+</div>
+
+</div> <!-- container //-->
+
+<br>
+    <div class="container-fluid bg-dark text-white">
+        <div class="row">
+            <div class="col-md-12 text-center">
+            &copy; 2021 MIS3502
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+				&nbsp; <!-- place holder for additional footer content -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

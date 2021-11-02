@@ -12,4 +12,4 @@ I plan to collaborate with one student, Rakan Alqtaishat
 
 ## Do you have any questions of your own?
 
-TODO
+How would I merge the python functions I have made, with my HTML page? 

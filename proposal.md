@@ -2,15 +2,18 @@
 
 ## What will (likely) be the title of your project?
 
-TODO
+The Carbon Emissions Calculator for Vehicles
 
 ## In just a sentence or two, summarize your project. (E.g., "A website that lets you buy and sell stocks.")
 
-TODO
+A website that will calculate the weekly carbon emissions output for civilian vehicles with the fuel type of either Gasoline or Diesel.  Following their input, we will calculate their output and compare it to the national average to tell them whether their emissions are above or below the average.  
 
 ## In a paragraph or more, detail your project. What will your software do? What features will it have? How will it be executed?
 
-TODO
+Our application will be using HTML and Javascript for the front facing site.  We will use javascript to execute our calculations, once users enter their metrics.  To start, we will ask the user for their miles driven within the last week, the vehicles miles per gallon, and the vehicles fuel type.  Once this is taken in, the software will find the amount of gallons driven, and based on the fuel type we will be able to tell the user their output within the last week in the form of Grams of CO2 per gallon.  
+We have also calculated the weekly average for consumer vehicular emissions output.  We will compare this to the users output, and if it is below the average, we will give them a message with green text telling them that they did good, or a message in red text alerting them that they are above the average and they should change their driving habits to have a less adverse affect on the environment.  
+
+Our software will have two tabs, one tab acting as the home page where they find t
 
 ## If planning to combine 1051's final project with another course's final project, with which other course? And which aspect(s) of your proposed project would relate to 1051, and which aspect(s) would relate to the other course?
 

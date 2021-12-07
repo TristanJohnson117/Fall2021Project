@@ -1,5 +1,144 @@
+Carbon Emissions Calculator (Tristan Johnson, Rakan Alqtaishat)
+
 This project was a very rewarding project as it opened me up to CSS, HTML, Javascript, and JQuery.  
 Initially, both me and my partner were nervous about doing a project which operated outside of Python, as this course focused on Python, but we wanted to do something which would challenge us further and was more web related.
 As a result, we spent many hours learning the tools and languages we would need to implement the code.  We were impressed with the work we had done, although we knew that there was a lot of room for improvement in the future as we better developed our skills. 
-What we enjoyed the most, was the creation of our formulas in javascript, and how we got our website to react when a person was over the emissions limit.  At first, this proved very challenging as well as being very frustrating, because we had the logic for what we wanted to do in python, but, we found that it was more complicated to implement our formulas and have the website properly react to our calculations in javascript because of the differences between the languages.
+What we enjoyed the most, was the creation of our formulas in javascript, and how we got our website to react when a person was over the emissions limit.  At first, this proved very challenging as well as being very frustrating, because we had the logic for what we wanted to do in python, but, we found that it was more complicated to implement our formulas and have the website properly react to our calculations in javascript because of the differences between the languages. Another challenge we had was comparing the gas and diesel outputs, because they had different averages, so we had to treat them seperately as well.
 In total, we both found that we enjoyed working with HTML, CSS, JS, and JQuery, and we hope to  further our studies and abilities in these languages in the future.  
+
+Here is the link to our youtube demo: https://youtu.be/_hZmXgA8Dn8
+
+
+Here is the code we worked with:
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href=https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css>
+    <script src=https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js></script>
+    <style> .btn{border:1px solid black; padding:5px;display:inline-block} </style>
+
+</head>
+
+
+<body>
+    <div class="col-md-8 content-wrapper"id="calculator">
+    <h1>Carbon Emissions Calculator</h1>
+    <p>Enter your vehicles fuel type, miles per gallon, and the miles driven per week to know whether or not your emission output is above or below the civilian average.</p>
+   
+    <label for="FuelType">What is the fuel type of your vehicle?</label>
+    <select name="FuelType" id="FuelType">
+        <option value="Gas">Gas</option>
+        <option value="Diesel">Diesel</option>
+    </select>
+    <p>How many miles have you driven in the last week?<input type="text" id="MilesPerWeek"></p>
+    <p>What is your vehicles MPG?<input type="text" id="MPG"></p>
+    <p><input type="button" class="btn btn-primary" id="btn_1" value="Calculate my emissions"></p>
+    <p><input type="button" class="btn btn-primary" id="btn_2" value="Check out our suggested tips!"></p>
+
+    <div id="textDisplayed1"></div>
+</div>
+<div class="col-md-8 content-wrapper" id='tips' >
+    <h1>Tips Page!</h1>
+
+    <h2>Drive Less</h2>
+    <p>Fewer miles driven means fewer emissions.
+        
+        Follow these tips to reduce the time you spend driving:<br>
+        Walk or bike when you can.  <br>
+        Use the bike-share programs if your city or town has them.<br>
+        Take public transit when possible.<br>
+        Carpool with friends instead of driving alone.<br>
+        Use ride-sharing services.<br>
+  
+    </p>
+    <br>
+    <h2>Drive Wise</h2>
+    <p>The way we drive can reduce emissions from our vehicles.
+
+        Follow these tips to effectively reduce emissions, drive more safely, and save money on fuel costs all at the same time:<br>
+        Drive efficiently – go easy on the gas pedal and brakes.<br>
+        Maintain your car – get regular tune-ups, follow the manufacturer’s maintenance schedule, and use the recommended motor oil.<br>
+    </p>
+    <br>
+        <h2>Choose Fuel Efficient Vehicles</h2>
+    <p>When shopping for a new car, look for fuel efficient vehicles with low greenhouse gas emissions. These cars can help the environment while potentially saving you money on fuel costs at the pump. Follow these tips:<br><br>
+
+        1. Use EPA's Green Vehicle Guide to learn about vehicles that are more efficient and less polluting, including:<br>
+        
+        Electric vehicles;<br>
+        Plug-in hybrid electric vehicles;<br><br>
+
+        2. Use the EPA's Fuel Economy and Environment Label to compare different vehicle models and find the most fuel efficient and environmentally friendly vehicle that meets your needs. This information is also available on the joint DOE and EPA website fuel economy.gov.
+    </p>
+    
+        <p> <input type="button" class="btn btn-primary" id="btn_3" value="Back to the C02 calculator"></p>
+</div>
+
+
+
+</body>
+
+<script>
+function CarbonOutput(MilesPerWeek, MPG, FuelType){
+/////////////////////////////////////////////////////////////////////////////////
+// Insert your code between here and the next comment block.  Do not alter     //
+// any code in any other part of this file.                                    //
+/////////////////////////////////////////////////////////////////////////////////
+     //notice that result is a string.
+    result = '';
+    if ((isNaN(MPG)) || MPG<=0 || MPG!=parseInt(MPG)||(isNaN(MilesPerWeek)) || MilesPerWeek<=0 || MilesPerWeek!=parseInt(MilesPerWeek)){
+        return 'Bad input try again'
+    }else{
+        if(FuelType=='Gas'){
+            var gallonsUsed = MPG/MilesPerWeek
+            var CarbonEmission = gallonsUsed * 8887
+            if(CarbonEmission>89027.9278){
+                return "Your output of " +CarbonEmission+ " CO2/Gallon is too high. Click our suggested tips to help reduce your carbon output!"
+            }else{
+                return "Congrats! Your ouput of "+CarbonEmission+" CO2/Gallon is below the average of 89027 per week!"
+            }
+            //return 'GASSSSSSSS'
+        }else{
+            gallonsUsed = MPG/MilesPerWeek
+            CarbonEmission = gallonsUsed * 10180
+            if(CarbonEmission>89027.9278){
+                return "Your output of " +CarbonEmission+ " CO2/Gallon is  too high. Click our suggested tips to help reduce your carbon output!"
+            }else{
+                return "Congrats! Your ouput of "+CarbonEmission+" CO2/Gallon is below the average of 89027CO2/Gallon per week!"
+            }
+    }    
+
+    }
+
+
+/////////////////////////////////////////////////////////////////////////////////
+//HERE IS WHERE WE ARE USING THE BUTTONS AND SELECTING THEM!!
+} 
+$(document).ready(function() {
+    $('#tips').hide()
+    $('#calculator').show()
+})
+
+$('#btn_1').click(function(){
+    var MPG = $('#MPG').val(); 
+    var MPW = $('#MilesPerWeek').val();
+    var FuelType = $('#FuelType').val(); //not sure if this is a val    
+    $('#textDisplayed1').html(CarbonOutput(MPG, MPW, FuelType));  //is this where the function CarbonOutput is going to show up
+    $('#textDisplayed1').addClass("alert alert-secondary")
+})
+$('#btn_2').click(function(){
+    $('#calculator').hide()
+    $('#tips').show()
+})
+$('#btn_3').click(function(){
+    $('#tips').hide()
+    $('#calculator').show()
+
+})
+
+</script>
+</html>
+
+
